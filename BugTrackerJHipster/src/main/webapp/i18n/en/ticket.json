@@ -1,0 +1,28 @@
+{
+  "bugTrackerJHipsterApp": {
+    "ticket": {
+      "home": {
+        "title": "Tickets",
+        "createLabel": "Create a new Ticket",
+        "createOrEditLabel": "Create or edit a Ticket",
+        "notFound": "No Tickets found"
+      },
+      "created": "A new Ticket is created with identifier {{ param }}",
+      "updated": "A Ticket is updated with identifier {{ param }}",
+      "deleted": "A Ticket is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ticket {{ id }}?"
+      },
+      "detail": {
+        "title": "Ticket"
+      },
+      "title": "Title",
+      "description": "Description",
+      "dueDate": "Due Date",
+      "done": "Done",
+      "project": "Project",
+      "assignedTo": "Assigned To",
+      "label": "Label"
+    }
+  }
+}
