@@ -23,6 +23,7 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
     @Query(value = "select distinct ticket from Ticket ticket left join fetch ticket.labels",
         countQuery = "select count(distinct ticket) from Ticket ticket")
     Page<Ticket> findAllWithEagerRelationships(Pageable pageable);
+    Page<Ticket> findAllByOrderByDueDateAsc(Pageable pageable);
 
     @Query("select distinct ticket from Ticket ticket left join fetch ticket.labels")
     List<Ticket> findAllWithEagerRelationships();

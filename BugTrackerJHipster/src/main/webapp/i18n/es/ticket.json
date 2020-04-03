@@ -16,12 +16,12 @@
       "detail": {
         "title": "Ticket"
       },
-      "title": "Title",
+      "title": "Nombre",
       "description": "Description",
       "dueDate": "Due Date",
       "done": "Done",
       "project": "Project",
-      "assignedTo": "Assigned To",
+      "assignedTo": "Asignado a",
       "label": "Label"
     }
   }

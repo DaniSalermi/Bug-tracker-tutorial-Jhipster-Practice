@@ -1,0 +1,73 @@
+<h2 id="page-heading">
+  <span>Assigned tickets</span>
+</h2>
+<jhi-alert></jhi-alert>
+<br />
+<div class="table-responsive" *ngIf="tickets">
+  <table class="table table-striped">
+    <thead>
+      <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse">
+        <th jhiSortBy="id">
+          <span jhiTranslate="global.field.id">ID</span>
+          <fa-icon [icon]="'sort'"></fa-icon>
+        </th>
+        <th jhiSortBy="title">
+          <span jhiTranslate="bugTrackerJHipsterApp.ticket.title">Title</span>
+          <fa-icon [icon]="'sort'"></fa-icon>
+        </th>
+        <th jhiSortBy="description">
+          <span jhiTranslate="bugTrackerJHipsterApp.ticket.description">Description</span>
+          <fa-icon [icon]="'sort'"></fa-icon>
+        </th>
+        <th jhiSortBy="dueDate">
+          <span jhiTranslate="bugTrackerJHipsterApp.ticket.dueDate">Due Date</span>
+          <fa-icon [icon]="'sort'"></fa-icon>
+        </th>
+        <th jhiSortBy="done">
+          <span jhiTranslate="bugTrackerJHipsterApp.ticket.done">Done</span>
+          <fa-icon [icon]="'sort'"></fa-icon>
+        </th>
+        <th jhiSortBy="project.name">
+          <span jhiTranslate="bugTrackerJHipsterApp.ticket.project">Project</span>
+          <fa-icon [icon]="'sort'"></fa-icon>
+        </th>
+        <th jhiSortBy="assignedTo.login">
+          <span jhiTranslate="bugTrackerJHipsterApp.ticket.assignedTo">Assigned To</span>
+          <fa-icon [icon]="'sort'"></fa-icon>
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ticket of tickets">
+        <td>
+          <a [routerLink]="['/ticket', ticket.id, 'view']">{{ ticket.id }}</a>
+        </td>
+        <td>{{ ticket.title }}</td>
+        <td>{{ ticket.description }}</td>
+        <td>{{ ticket.dueDate | date: 'mediumDate' }}</td>
+        <td>{{ ticket.done }}</td>
+        <td>
+          <div *ngIf="ticket.project">
+            <a [routerLink]="['../project', ticket.project?.id, 'view']">{{ ticket.project?.name }}</a>
+          </div>
+        </td>
+        <td>
+          {{ ticket.assignedTo?.login }}
+        </td>
+        <td class="text-right">
+          <div class="btn-group flex-btn-group-container">
+            <button type="submit" [routerLink]="['/ticket', ticket.id, 'view']" class="btn btn-info btn-sm">
+              <fa-icon [icon]="'eye'"></fa-icon>
+              <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+            </button>
+            <button type="submit" [routerLink]="['/ticket', ticket.id, 'edit']" class="btn btn-primary btn-sm">
+              <fa-icon [icon]="'pencil-alt'"></fa-icon>
+              <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

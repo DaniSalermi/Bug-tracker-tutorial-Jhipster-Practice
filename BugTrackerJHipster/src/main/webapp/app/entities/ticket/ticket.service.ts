@@ -71,4 +71,10 @@ export class TicketService {
     }
     return res;
   }
+  queryMyTickets(): Observable<EntityArrayResponseType> {
+    const options = createRequestOption();
+    return this.http
+      .get<ITicket[]>(this.resourceUrl + '/self', { params: options, observe: 'response' })
+      .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
+  }
 }
